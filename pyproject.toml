@@ -6,13 +6,14 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "spglib"
+version = "2.5.1"
 requires-python = ">=3.9"
 description = "This is the spglib module."
 license = {file = "COPYING"}
 #license = "BSD-3-Clause"
 #license-files = ["COPYING"]
 readme = "python/README.rst"
-dynamic = ["version"]
+#dynamic = ["version"]
 dependencies = [
     "numpy>=1.20,<3",
     "importlib-resources; python_version<'3.10'",
@@ -88,7 +89,7 @@ testing = [
 [tool.scikit-build]
 cmake.source-dir = "python"
 wheel.install-dir = "spglib"
-metadata.version.provider = "scikit_build_core.metadata.setuptools_scm"
+#metadata.version.provider = "scikit_build_core.metadata.setuptools_scm"
 sdist.include = ["python/spglib/_version.py"]
 
 [tool.scikit-build.cmake.define]
@@ -101,8 +102,8 @@ if.env.CIBUILDWHEEL = true
 # Make sure cibuildwheel builds with a bundled spglib
 cmake.define.CMAKE_DISABLE_FIND_PACKAGE_Spglib = "ON"
 
-[tool.setuptools_scm]
-write_to = "python/spglib/_version.py"
+#[tool.setuptools_scm]
+#write_to = "python/spglib/_version.py"
 
 [tool.cibuildwheel]
 # pp, win32, i686, muslinux: Remove 32bit variants, PyPY interpreter and unnecessary musl variant
